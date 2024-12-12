@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <form method="post" action="/">
+            <div class="field">
+                <label for="id">Label: </label>
+                <select name="name" id="id" required>
+                    <option value="" disabled selected></option>
+                    <option th:each="e : ${es}" th:value="${e.attr}"
+                        th:text="|${e.name} &#40;${e.symbol}&#41;|"></option>
+                </select>
+            </div>
+
+            <button type="submit">Convert</button>
+        </form>
+    </div>
+</body>
+</html>

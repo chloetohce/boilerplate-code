@@ -1,4 +1,4 @@
-package boilerplate.code;
+package boilerplate.code.model;
 
 import java.io.StringReader;
 import java.util.Date;

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead class="table-darl">
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>DOB</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            <tr th:each="person, state : ${persons}">
+                <td th:utext="${person.id}"></td>
+                <td th:utext="${person.firstName}"></td>
+                <td th:utext="${person.lastName}"></td>
+                <td th:utext="${#temporals.format(person.dob, 'yyyy MMM dd')}"></td>
+                <!-- LocalDate = use #temporals; Data = use #dates -->
+                <td>
+                    <a th:href="@{/persons/delete/{id}(id=${person.id})}">Delete</a>
+                    <a th:href="@{/persons/update/{id}(id=${person.id})}">Edit</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div th:if="${persons.size() le 0}">
+        <p>No records found</p>
+    </div>
+</body>
+</html>

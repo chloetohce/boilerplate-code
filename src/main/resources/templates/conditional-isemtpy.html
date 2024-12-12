@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p th:if="${#lists.isEmpty(listName)}">There are currently no active sessions.</p>
+    <table th:unless="${#lists.isEmpty(listName)}">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">DOB</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="s, stat : ${sessions}">
+            <th scope="row" th:text="${stat.count}"></th>
+            <td th:text="${s.name}"></td>
+            <td th:text="${s.dob}"></td>
+          </tr>
+        </tbody>
+      </table>
+</body>
+</html>

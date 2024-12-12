@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        <span data-th-text="${currTime}"></span>"
+    </p>
+    <div class = "greeting">
+        <div th:if="${currHour lt 12}">
+            <p>Good morning!</p>
+        </div>
+        <div th:unless="${currHour lt 12}">
+            <p>Good afternoon!</p>
+        </div>
+        <p th:if="${currHour gt 12}">Test</p>
+    </div>
+</body>
+</html>

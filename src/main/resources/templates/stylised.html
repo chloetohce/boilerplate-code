@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <form method="post" action="/todo/add" th:object="${todo}">
+            <div class="field">
+                <input type="hidden" th:field="*{id}" name="id" id="id">
+            </div>
+
+            <div class="field">
+                <label class="col" for="name">Name: </label>
+                <input class="col" type="text" th:field="*{name}" name="name" id="name">
+            </div>
+
+            <div class="field">
+                <label class="col" for="status">Status: </label>
+                <select class="col" th:field="*{status}" name="status" id="status">
+                    <option value="pending">pending</option>
+                    <option value="started">started</option>
+                    <option value="in_progress">in progress</option>
+                    <option value="completed">completed</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label class="col" for="updated_at">Updated: </label>
+                <input class="col" type="date" th:field="*{updated_at}" name="updated_at" id="updated_at">
+            </div>
+
+            <div class="field">
+                <button class="col" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

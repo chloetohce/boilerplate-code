@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" action="/form" th:object="${object}">
+        <div class="field">
+            <label for="id">Label</label>
+            <input type="text" name="name" id="id" th:field="field">
+            <p th:if="${#fields.hasErrors('field')}" th:errors="*{field}"></p>
+            <br>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
